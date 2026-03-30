@@ -1,4 +1,5 @@
 import { useAuth } from "../../hooks/useAuth"
+import ThemeToggle from "../ThemeToggle";
 
 const Navbar = () => {
     const { state, logout } = useAuth();
@@ -8,7 +9,7 @@ const Navbar = () => {
         <h1 className="text-xl font-bold">Dashboard</h1>
 
         <div className="flex items-center gap-4">
-            {/* implement Theme toggle and import here */}
+            <ThemeToggle />
 
             {state.isLoggedIn && (
                 <>
