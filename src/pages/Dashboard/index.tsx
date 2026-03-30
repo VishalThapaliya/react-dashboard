@@ -1,34 +1,17 @@
-import { useEffect, useState } from 'react'
 import { useAuth } from "../../hooks/useAuth";
 
 const Dashboard = () => {
     const { state } = useAuth();
-    const [posts, setPosts] = useState<string[]>([]);
-    useEffect(() => {
-        const fetchPosts = async () => {
-            try {
-                const response = await fetch(`https://jsonplaceholder.typicode.com/posts`);
-                
-                if(!response.ok) {
-                    throw new Error("Couldn't fetch from API");
-                }
-
-                const data = await response.json();
-                setPosts(data);
-            } catch (error) {
-                console.error("Error while fetching posts: ", error);
-            }
-        }
-
-        fetchPosts();
-    });
 
   return (
-    <div>
-        <h1>Dashboard</h1>
-        <p>Welcome {state.user?.name}</p>
-    </div>
-  )
-}
+    <div className="bg-white dark:bg-gray-800 p-6 rounnded-xl shadow">
+        <h2 className="text-lg font-semibold mb-2">Welcome back {state.user?.name}</h2>
 
-export default Dashboard
+        <p className="text-sm text-gray-500 mb-4">
+            {state.user?.email}
+        </p>
+    </div>
+  );
+};
+
+export default Dashboard;
