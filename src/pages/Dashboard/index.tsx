@@ -1,6 +1,6 @@
-import Navbar from "../../components/Navbar";
-import PostList from "../../components/PostList";
-import { useAuth } from "../../hooks/useAuth";
+import Navbar from "@components/Navbar";
+import PostList from "@components/PostList";
+import { useAuth } from "@hooks/useAuth";
 
 const Dashboard = () => {
     const { state } = useAuth();

@@ -26,7 +26,9 @@
 
     "baseUrl": "./src",
     "paths": {
-      "@hooks/*": ["hooks/*"]
+      "@hooks/*": ["hooks/*"],
+      "@context/*": ["context/*"],
+      "@components/*": ["components/*"],
     },
     "ignoreDeprecations": "6.0"
   },
