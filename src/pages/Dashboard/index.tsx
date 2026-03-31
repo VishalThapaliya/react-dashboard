@@ -8,6 +8,7 @@ const Dashboard = () => {
   return (
     <>
         <Navbar />
+        
         <div className="bg-white dark:bg-gray-800 p-6 rounnded-xl shadow">
             <h2 className="text-lg font-semibold mb-2">Welcome back {state.user?.name}</h2>
 
