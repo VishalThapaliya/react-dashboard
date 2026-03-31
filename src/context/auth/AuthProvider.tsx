@@ -23,7 +23,7 @@ const getInitialState = (): AuthState => {
 };
 
 // Reducer function
-const authReducer = (state: AuthState, action: AuthAction) => {
+const authReducer = (state: AuthState, action: AuthAction): AuthState => {
     switch(action.type) {
         case "LOGIN":
             return {

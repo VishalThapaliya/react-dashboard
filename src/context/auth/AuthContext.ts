@@ -2,8 +2,8 @@ import { createContext } from "react";
 
 // User type
 export type User = {
-    name: string,
-    email: string
+    name: string;
+    email: string;
 }
 
 // State type
@@ -13,7 +13,9 @@ export type AuthState = {
 }
 
 // Action type
-export type AuthAction = { type: "LOGIN", payload: User } | { type: "LOGOUT" };
+export type AuthAction = 
+    | { type: "LOGIN", payload: User } 
+    | { type: "LOGOUT" };
 
 // Context type
 export type AuthContextType = {
