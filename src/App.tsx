@@ -1,10 +1,10 @@
 
 import './App.css'
-import AuthButtons from "./components/AuthButtons"
-import Layout from "./components/Layout"
-import { AuthProvider } from "./context/auth/AuthProvider"
-import { ThemeProvider } from "./context/theme/ThemeProvider"
-import { useAuth } from "./hooks/useAuth"
+import AuthButtons from "@components/AuthButtons"
+import Layout from "@components/Layout"
+import { AuthProvider } from "@context/auth/AuthProvider"
+import { ThemeProvider } from "@context/theme/ThemeProvider"
+import { useAuth } from "@hooks/useAuth"
 import Dashboard from "./pages/Dashboard"
 
 const AppContent = () => {
