@@ -29,6 +29,7 @@
       "@hooks/*": ["hooks/*"],
       "@context/*": ["context/*"],
       "@components/*": ["components/*"],
+      "@services/*": ["services/*"]
     },
     "ignoreDeprecations": "6.0"
   },

@@ -1,5 +1,3 @@
-
-import './App.css'
 import AuthButtons from "@components/AuthButtons"
 import Layout from "@components/Layout"
 import { AuthProvider } from "@context/auth/AuthProvider"
