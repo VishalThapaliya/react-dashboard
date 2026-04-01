@@ -1,26 +1,46 @@
 import { useEffect, useState } from "react";
-
-// Post type
-type Post = {
-    id: number;
-    title: string;
-    body: string;
-}
+import { fetchPosts, type Post } from "../../services/postService";
+import PostSkeleton from "./PostSkeleton";
 
 const PostList = () => {
     const [posts, setPosts] = useState<Post[]>([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+
+    const loadPosts = async () => {
+        try {
+            setLoading(true);
+            setError(null);
+            const data = await fetchPosts();
+            setPosts(data);
+        } catch (error) {
+            setError(`Something went worng while fetching posts: ${error}`);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     useEffect(() => {
-        fetch("https://jsonplaceholder.typicode.com/posts")
-        .then(res => res.json())
-        .then(data => {
-            setPosts(data.slice(0, 10))
-            setLoading(false);
-        });
+        loadPosts();
     }, []);
 
-    if(loading) return <p>Loading Posts...</p>;
+    // loading state
+    if(loading) return <PostSkeleton />
+
+    // error state
+    if(error) {
+        return (
+            <div className="text-center">
+                <p className="text-red-500 mb-3">{error}</p>
+                <button 
+                    onClick={loadPosts}
+                    className="px-4 py-2 bg-blue-500 text-white rounded"
+                >
+                    Retry
+                </button>
+            </div>
+        )
+    };
 
     return (
         <div className="grid gap-4 sm:grid-cols-2">
